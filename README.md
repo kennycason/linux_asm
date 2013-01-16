@@ -1,4 +1,5 @@
 linux_asm
 =========
 
-My Assembly Collection
+To Clean/Compile/Run
+./build.sh <file_name.asm>
