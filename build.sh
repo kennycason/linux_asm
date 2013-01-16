@@ -1,16 +1,36 @@
-#!/bin/sh
+#!/bin/bash
 
-INPUT=${1%.asm}						# remove ".asm"
-INPUT=${INPUT%.s}					# remove ".s"
+FILE=$1
+BASE=${1%.*}							# remove ".*"
 
-rm bin/$INPUT.o						# cleanup existing code
-rm bin/$INPUT
+function clean {
+	if [ -f bin/$BASE.o ];
+	then
+		rm bin/$BASE.o
+	fi
+	if [ -f bin/$BASE ];
+	then
+		rm bin/$BASE
+	fi
+}
 
-as $1 -o bin/$INPUT.o				# assemble
-if [ -f bin/$INPUT.o ];
-then
-	ld bin/$INPUT.o -o bin/$INPUT	# link
-	rm bin/$INPUT.o					# cleanup
-	./bin/$INPUT					# run
-	echo $?							# exit return status of program
-fi
+function build {
+	as $FILE -o bin/$BASE.o				# assemble
+	if [ -f bin/$BASE.o ];
+	then
+		ld bin/$BASE.o -o bin/$BASE	# link
+		rm bin/$BASE.o					# cleanup
+	fi
+}
+
+function run {
+	if [ -f bin/$BASE ];
+	then
+		./bin/$BASE					# run
+		echo $?							# exit return status of program
+	fi
+}
+
+clean
+build
+run
