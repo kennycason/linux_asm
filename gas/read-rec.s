@@ -1,5 +1,5 @@
-.include "linux.asm"
-.include "record-def.asm"
+.include "linux.s"
+.include "record-def.s"
 .section .data
 file_name:
 .ascii "test.dat\0"

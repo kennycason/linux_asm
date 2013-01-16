@@ -4,7 +4,6 @@
 # 4 is 4 * 3 * 2 * 1, or 24, and so on.
 #
 #This program shows how to call a function recursively.
-.code32
 .section .data
 					# This program has no global data
 .section .text

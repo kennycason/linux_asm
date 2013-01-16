@@ -1,5 +1,5 @@
-.include "linux.asm"
-.include "record-def.asm"
+.include "linux.s"
+.include "record-def.s"
 .section .data
 #Constant data of the records we want to write
 #Each text data item is padded to the proper
