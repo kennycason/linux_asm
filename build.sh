@@ -83,20 +83,3 @@ function run {
 	fi
 }
 
-# start
-clean
-if [[ $FILE == *.asm ]]
-then 
-	buildNASM
-	run
-elif [[ $FILE == *.s ]]
-then
-	buildGAS
-	run
-else
-	echo "Not a NASM File (.asm)"
-	echo "Not a GAS File (.s)"
-fi
-
-# nasm -felf32 myprog.asm
-# gcc -o myprog -m32 myprog.o
