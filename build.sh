@@ -13,6 +13,18 @@ function clean {
 	then
 		rm bin/$BASE
 	fi
+    if [ ! -d bin ] 
+    then 
+        mkdir bin
+    fi 
+	if [ ! -d bin/gas ] 
+	then 
+        mkdir bin/gas
+    fi
+    if [ ! -d bin/nasm ] 
+    then 
+        mkdir bin/nasm
+    fi 
 }
 
 function buildGAS {
